@@ -43,16 +43,16 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
+        <p className={`${styles.sectionSubText} text-left`}>
           My work
         </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
+        <h2 className={`${styles.sectionHeadText} text-left`}>
           Projects
         </h2>
       </motion.div>
 
       <div className="w-full flex">
-        <motion.p variants={fadeIn('','', 0.1, 1)} className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
+        <motion.p variants={fadeIn('','', 0.1, 1)} className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-left">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
 
         </motion.p>
