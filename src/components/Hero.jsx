@@ -14,7 +14,7 @@ const Hero = () => {
 
         <div className=''>
           <h1 className={`${styles.heroHeadText}`}>Hi, I'm <span className='text-[#BA1405]'>ERIKH</span></h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+          <p className={`${styles.heroSubText} mt-2 text-white-100`}> I am an ambitious young developer, driven <br/> to push boundaries and create innovative solutions</p>
         </div>
       </div> 
       <ComputersCanvas></ComputersCanvas>
