@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { EarthCanvas } from './canvas';
 import { SectionWrapper } from "../hoc";
@@ -15,8 +15,37 @@ const Contact = () => {
   })
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {}
-  const handleSubmit = (e) => {}
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm({...form, [name]: value})
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs.send('service_xw7impq', 'template_au7xrvk', {
+      from_name: form.name,
+      to_name: 'Erikh',
+      from_email: form.email,
+      to_email: 'domingueserikh@gmail.com',
+      message: form.message,
+    }, 'N_UoDcwOMKCHjE0H8').then(() => {
+      setLoading(false);
+      alert('Thank you. I appreciate your interest in my profile!')
+
+      setForm({
+        name: '',
+        email: '',
+        message: '',
+      })
+    }, (error) => {
+      setLoading(false);
+      console.log(error);
+      alert('Something went wrong!')
+    });
+
+  }
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 oveflow-hidden">
@@ -34,7 +63,7 @@ const Contact = () => {
           {/* Input Email */}
           <label className="flex flex-col" htmlFor="">
             <span className="text-white font-medium mb-4">Your Email</span>
-            <input type="text" name="name" value={form.email} onChange={handleChange} placeholder="Email" className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
+            <input type="text" name="email" value={form.email} onChange={handleChange} placeholder="Email" className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium" />
           </label>
 
           {/* Input Message  */}
